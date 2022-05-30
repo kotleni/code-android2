@@ -10,9 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import app.code.R
 import app.code.databinding.ActivityMainBinding
 import app.code.databinding.FragmentProjectsBinding
+import app.code.fragment.ProjectsFragment
+import app.code.item.Project
 import app.code.model.ProjectsViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -30,19 +33,5 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             add<ProjectsFragment>(R.id.container)
         }
-    }
-}
-
-class ProjectsFragment: Fragment() {
-    private lateinit var viewBinding: FragmentProjectsBinding
-    private val model: ProjectsViewModel by viewModels()
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewBinding = FragmentProjectsBinding.inflate(inflater, container, false)
-        return viewBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
     }
 }
