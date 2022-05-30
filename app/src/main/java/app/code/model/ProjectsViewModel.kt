@@ -21,7 +21,6 @@ class ProjectsViewModel @Inject constructor(
 
     // update projects list
     fun updateProjectsList() {
-        projectsRepo.createProject(Project("test1"))
         _projectsList.value = projectsRepo.getAllProjects()
     }
 }
