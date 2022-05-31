@@ -1,21 +1,17 @@
 package app.code.fragment
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.code.R
 import app.code.adapter.ProjectsListAdapter
 import app.code.databinding.FragmentProjectsBinding
 import app.code.getAppComponent
-import app.code.item.Project
 import app.code.model.ProjectsViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -41,16 +37,13 @@ class ProjectsFragment: Fragment() {
         model.updateProjectsList()
 
         viewBinding.create.setOnClickListener {
-            showCreateProjectDialog()
+            requireActivity().supportFragmentManager.commit {
+                setCustomAnimations(
+                    android.R.anim.slide_in_left,
+                    android.R.anim.fade_out
+                )
+                add(R.id.container, CreateProjectFragment())
+            }
         }
-    }
-
-    private fun showCreateProjectDialog() {
-        val dialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
-        // dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val view = LayoutInflater.from(requireContext())
-            .inflate(R.layout.dialog_createproject, null, false)
-        dialog.setContentView(view)
-        dialog.show()
     }
 }
