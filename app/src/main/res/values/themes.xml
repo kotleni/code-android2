@@ -2,5 +2,15 @@
     <style name="Theme.Code" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor">#ffffff</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:background">#3b3f41</item>
+        <item name="android:textColor">#bbbbbb</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/dialog_bottomsheetbackground</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
     </style>
 </resources>

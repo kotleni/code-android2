@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New project"
+            android:layout_marginTop="16dp"
+            android:textSize="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+            android:id="@+id/name"
+            android:layout_width="230dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="32dp"
+            android:padding="6dp"
+            android:hint="Name"
+            android:textSize="14sp"
+            android:textColor="#bbbbbb"
+            android:textColorHint="#9E9E9E"
+            android:background="@drawable/input_background"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+            android:id="@+id/author"
+            android:layout_width="230dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:hint="Author"
+            android:textSize="14sp"
+            android:textColor="#bbbbbb"
+            android:textColorHint="#9E9E9E"
+            android:background="@drawable/input_background"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+            android:id="@+id/cancel"
+            android:background="@drawable/btn_default"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Cancel"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="64dp"
+            app:layout_constraintTop_toBottomOf="@id/author"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/create"/>
+
+    <TextView
+            android:id="@+id/create"
+            android:background="@drawable/btn_active"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Create"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="64dp"
+            app:layout_constraintTop_toBottomOf="@id/author"
+            app:layout_constraintLeft_toRightOf="@id/cancel"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
