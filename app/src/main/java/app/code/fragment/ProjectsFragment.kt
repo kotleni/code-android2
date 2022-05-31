@@ -42,7 +42,7 @@ class ProjectsFragment: Fragment() {
                     android.R.anim.slide_in_left,
                     android.R.anim.fade_out
                 )
-                add(R.id.container, CreateProjectFragment())
+                replace(R.id.container, CreateProjectFragment())
             }
         }
     }

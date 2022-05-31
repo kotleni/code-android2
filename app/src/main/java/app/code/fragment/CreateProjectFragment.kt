@@ -25,7 +25,7 @@ class CreateProjectFragment: Fragment() {
                     android.R.anim.slide_in_left,
                     android.R.anim.fade_out
                 )
-                detach(this@CreateProjectFragment)
+                replace(R.id.container, ProjectsFragment())
             }
         }
     }
