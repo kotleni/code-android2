@@ -2,7 +2,7 @@
 Application for java/kotlin development on Android.
 
 ### Todo
-- [ ] Projects Manager
+- [x] Projects Manager
 - [ ] Simple code editor
 - [ ] Code editor highlight
 - [ ] Compile Java
