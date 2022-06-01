@@ -7,10 +7,13 @@ import javax.inject.Inject
 
 class CreateProjectViewModel @Inject constructor(val projectsRepo: ProjectsRepository): ViewModel() {
     fun createProject(name: String, author: String, type: String) {
-        projectsRepo.createProject(NewProject(
-            name = name,
-            author = author,
-            type = type
-        ))
+        if(name.isNotEmpty() && author.isNotEmpty() && type.isNotEmpty()) {
+            projectsRepo.createProject(NewProject(
+                name = name,
+                author = author,
+                type = type
+            ))
+        } else { // todo: show error
+        }
     }
 }

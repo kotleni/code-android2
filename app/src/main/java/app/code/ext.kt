@@ -25,3 +25,8 @@ fun String.removeAllUnsafe(allowSafeChars: Boolean = false, allowSafeNumbers: Bo
     }
     return builder.toString()
 }
+
+fun String?.forceEmpty(): String {
+    if(this == null) return ""
+    return this
+}

@@ -1,6 +1,7 @@
 package app.code.item
 
 import app.code.config.Config
+import app.code.forceEmpty
 import java.io.File
 
 class Project(
