@@ -15,8 +15,8 @@ private const val safeChars = "=;'_"
 private const val safeNumbers = "0123456789"
 fun String.removeAllUnsafe(allowSafeChars: Boolean = false, allowSafeNumbers: Boolean = false): String {
     val builder = StringBuilder()
-    this.forEach {
-        if(it in safeLetters)
+    forEach {
+        if(it.lowercase() in safeLetters)
             builder.append(it)
         else if(it in safeChars && allowSafeChars)
             builder.append(it)
