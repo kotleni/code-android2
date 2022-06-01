@@ -1,6 +1,7 @@
 package app.code.di
 
 import android.content.Context
+import app.code.model.CreateProjectViewModelFactory
 import app.code.model.ProjectsViewModel
 import app.code.model.ProjectsViewModelFactory
 import dagger.BindsInstance
@@ -14,5 +15,7 @@ interface AppComponent {
     }
 
     fun getProjectsViewModelFactory(): ProjectsViewModelFactory
+    fun getCreateProjectViewModelFactory(): CreateProjectViewModelFactory
+
     fun inject(q: ProjectsViewModel)
 }

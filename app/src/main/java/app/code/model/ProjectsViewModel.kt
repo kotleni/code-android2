@@ -9,9 +9,7 @@ import app.code.item.Project
 import app.code.repo.ProjectsRepository
 import javax.inject.Inject
 
-class ProjectsViewModel @Inject constructor(
-    val projectsRepo: ProjectsRepository
-    ):  ViewModel() {
+class ProjectsViewModel @Inject constructor(val projectsRepo: ProjectsRepository):  ViewModel() {
 
     // private
     private val _projectsList: MutableLiveData<List<Project>> by lazy { MutableLiveData<List<Project>>() }
