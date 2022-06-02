@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
@@ -11,8 +12,12 @@ import app.code.R
 import app.code.databinding.FragmentCreateprojectBinding
 import app.code.databinding.FragmentProjectsBinding
 import app.code.getAppComponent
+import app.code.item.NewProject
 import app.code.model.CreateProjectViewModel
 import app.code.model.ProjectsViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.*
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class CreateProjectFragment: Fragment() {
     private lateinit var viewBinding: FragmentCreateprojectBinding
@@ -34,7 +39,18 @@ class CreateProjectFragment: Fragment() {
                 viewBinding.author.text.toString(),
                 "java" // tempolary static
             )
-            popBack()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        popBack()
+                    },
+                    {
+                        Toast
+                            .makeText(requireContext(), "Ошибка создание проекта", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                )
         }
     }
 

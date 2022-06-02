@@ -14,7 +14,8 @@ class ProjectsListAdapter: RecyclerView.Adapter<ProjectsListAdapter.MyViewHolder
     }
 
     private var projectsList: List<Project> = listOf()
-    val projectsListObserver = Observer<List<Project>> { projects ->
+
+    fun update(projects: List<Project>) {
         projectsList = projects
         notifyDataSetChanged()
     }

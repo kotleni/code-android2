@@ -14,6 +14,8 @@ import app.code.databinding.FragmentProjectsBinding
 import app.code.getAppComponent
 import app.code.model.ProjectsViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 class ProjectsFragment: Fragment() {
@@ -32,9 +34,13 @@ class ProjectsFragment: Fragment() {
         viewBinding.recycler.layoutManager = LinearLayoutManager(requireContext())
         viewBinding.recycler.adapter = projectsListAdapter
 
-        // setup model
-        model.projectsList.observe(this, projectsListAdapter.projectsListObserver)
-        model.updateProjectsList()
+        // load data
+        model.getProjectsList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                projectsListAdapter.update(it)
+            }
 
         viewBinding.create.setOnClickListener {
             requireActivity().supportFragmentManager.commit {
