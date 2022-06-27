@@ -1,5 +1,5 @@
 ## Code
-Application for java/kotlin development on Android.
+Uncompleted application for java/kotlin development on Android.
 
 ### Todo
 - [x] Projects Manager
